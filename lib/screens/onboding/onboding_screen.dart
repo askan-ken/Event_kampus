@@ -2,9 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
 
 import 'components/animated_btn.dart';
+import 'components/sign_in_form.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -93,10 +95,33 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           child: Container(
                             height: 620,
                             margin: EdgeInsets.symmetric(horizontal: 16),
+                            padding: EdgeInsets.symmetric(
+                                vertical: 32, horizontal: 24),
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: Colors.white.withOpacity(0.94),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(40))),
+                            child: Scaffold(
+                              backgroundColor: Colors.transparent,
+                              body: Column(
+                                children: [
+                                  Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                        fontSize: 34, fontFamily: "Poppins"),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 16),
+                                    child: Text(
+                                      "Bergabunglah dengan kami di Universitas Teknokrat Indonesia!",
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  SignInWidget()
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       );
